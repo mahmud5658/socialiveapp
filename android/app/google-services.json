@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "61135012518",
+    "project_id": "social-media-app-c6eed",
+    "storage_bucket": "social-media-app-c6eed.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61135012518:android:e874f2fc1409540d66aa67",
+        "android_client_info": {
+          "package_name": "com.example.socialive"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeXOVvq7OPg5V_ypQxwI2pbzAlI-gNZj8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
