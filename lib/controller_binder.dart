@@ -6,10 +6,8 @@ import '../controllers/bottom_navbar_controller.dart';
 class ControllerBinders extends Bindings {
   @override
   void dependencies() {
-
     Get.put<BottomNavbarController>(BottomNavbarController(), permanent: true);
     Get.put(ThemeController());
-    Get.put(PictureController());
-
+    Get.lazyPut(()=> PictureController());
   }
 }

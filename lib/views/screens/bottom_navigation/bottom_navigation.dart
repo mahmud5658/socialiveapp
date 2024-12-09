@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:socialive/controllers/picture_controller.dart';
 import '../../../controllers/bottom_navbar_controller.dart';
 import 'package:socialive/utils/assets_paths.dart';
 import 'package:socialive/views/add/add_screen.dart';
@@ -11,9 +12,20 @@ import 'package:socialive/views/profile/my_profile_screen.dart';
 
 import '../../add/image_selection_screen.dart';
 
-class MainNavigationScreen extends StatelessWidget {
+class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
 
+  @override
+  State<MainNavigationScreen> createState() => _MainNavigationScreenState();
+}
+
+class _MainNavigationScreenState extends State<MainNavigationScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+    Get.find<PictureController>().getPicture();
+  }
   void _showSelectionDialog(BuildContext context) {
     showDialog(
       context: context,
