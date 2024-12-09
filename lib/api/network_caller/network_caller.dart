@@ -5,10 +5,10 @@ import '../model/network_response.dart';
 
 
 class NetworkCaller {
-  static Future<NetworkResponse> getRequest() async {
+  static Future<NetworkResponse> getRequest(url) async {
     try {
       Response response = await get(
-          Uri.parse('https://foodhut-gold.vercel.app/api/v1/customerReviews',),);
+          Uri.parse(url),);
       if (response.statusCode == 200) {
         debugPrint(response.statusCode.toString());
         final decodedData = jsonDecode(response.body);
