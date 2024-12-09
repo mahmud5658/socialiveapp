@@ -1,22 +1,33 @@
 import 'package:flutter_svg/svg.dart';
+import 'package:socialive/controllers/picture_controller.dart';
 import '../../../my_imports.dart';
 import '../../../utils/assets_paths.dart';
 
-class SocialPostCard extends StatelessWidget {
+class SocialPostCard extends StatefulWidget {
   const SocialPostCard({super.key});
 
   @override
+  State<SocialPostCard> createState() => _SocialPostCardState();
+}
+
+class _SocialPostCardState extends State<SocialPostCard> {
+  final PictureController pictureController = Get.find<PictureController>();
+  @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: 10,
-      padding: const EdgeInsets.all(8.0),
-      itemBuilder: (context, index) => _buildPostCard(context),
+    return GetBuilder<PictureController>(
+      builder: (pictureController) {
+        return ListView.builder(
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: pictureController.pictureList.length,
+          padding: const EdgeInsets.all(8.0),
+          itemBuilder: (context, index) => _buildPostCard(context,index),
+        );
+      }
     );
   }
 
-  Widget _buildPostCard(BuildContext context) {
+  Widget _buildPostCard(BuildContext context,index) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16.0),
       child: Container(
@@ -36,7 +47,7 @@ class SocialPostCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _buildPostHeader(),
-            _buildPostImage(),
+            _buildPostImage(index),
             _buildPostActions(context),
             _buildPostCommentInput(),
           ],
@@ -90,13 +101,13 @@ class SocialPostCard extends StatelessWidget {
     );
   }
 
-  Widget _buildPostImage() {
+  Widget _buildPostImage(index) {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(12),
         child: Image.network(
-          'https://avatars.githubusercontent.com/u/104672914?s=400&u=453aec5b1ec6e9a1c3c975436ee5ee55b1233ed9&v=4',
+          pictureController.pictureList[index].picture.toString(),
           width: double.infinity,
           fit: BoxFit.cover,
           height: 400,
