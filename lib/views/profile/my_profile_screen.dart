@@ -5,13 +5,9 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:insta_image_viewer/insta_image_viewer.dart';
-import 'package:socialive/api/network_caller/network_caller.dart';
-import 'package:socialive/controllers/picture_controller.dart';
 import 'package:socialive/views/profile/components/profile_list_view.dart';
 import 'package:socialive/views/profile/components/user_stats.dart';
 import 'package:socialive/views/profile/components/widget_separator.dart';
-import 'package:socialive/views/profile/follower.dart';
 import 'package:socialive/views/profile/other_profile_screen.dart';
 
 import '../../controllers/bottom_navbar_controller.dart';
